@@ -4,7 +4,7 @@ import type { Project } from "@/types";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-xl border border-border transition-colors hover:border-muted">
+      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border transition-colors hover:border-muted">
       <div className="relative aspect-video bg-border">
         <Image
           src={project.image}
