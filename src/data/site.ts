@@ -8,6 +8,7 @@ export const site = {
   ],
   role: "[ISI: Bidang kamu, mis. Web Developer]",
   tagline: "[ISI: Satu kalimat tentang apa yang kamu kerjakan]",
+  availability: "[ISI: mis. Terbuka untuk magang dan freelance]",
   bio: "[ISI: Paragraf singkat tentang latar belakang, minat, dan tujuan kariermu]",
   location: "[ISI: Kota, Indonesia]",
   email: "[ISI: email@kamu.com]",
