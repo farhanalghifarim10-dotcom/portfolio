@@ -1,5 +1,11 @@
 export const site = {
   name: "[ISI: Nama Lengkap]",
+    shortName: "[ISI: Nama Panggilan]",
+  nav: [
+    { label: "Tentang", href: "/#about" },
+    { label: "Proyek", href: "/#projects" },
+    { label: "Kontak", href: "/#contact" },
+  ],
   role: "[ISI: Bidang kamu, mis. Web Developer]",
   tagline: "[ISI: Satu kalimat tentang apa yang kamu kerjakan]",
   bio: "[ISI: Paragraf singkat tentang latar belakang, minat, dan tujuan kariermu]",
