@@ -23,11 +23,29 @@ export const metadata: Metadata = {
   description: site.tagline,
 };
 
+// Berjalan sebelum halaman tampil, supaya tidak ada kedipan terang lalu gelap.
+const themeScript = `
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="id" className={`${jakarta.variable} ${jetbrains.variable}`}>
+    <html
+      lang="id"
+      suppressHydrationWarning
+      className={`${jakarta.variable} ${jetbrains.variable}`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Container from "@/components/ui/Container";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import { site } from "@/data/site";
 
 export default function Navbar() {
@@ -19,27 +20,31 @@ export default function Navbar() {
           {site.shortName}
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Navigasi utama">
-          {site.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-6">
+          <nav className="hidden items-center gap-8 md:flex" aria-label="Navigasi utama">
+            {site.nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <button
-          type="button"
-          className="text-sm md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? "Tutup" : "Menu"}
-        </button>
+          <ThemeToggle />
+
+          <button
+            type="button"
+            className="text-sm md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? "Tutup" : "Menu"}
+          </button>
+        </div>
       </Container>
 
       {open && (
