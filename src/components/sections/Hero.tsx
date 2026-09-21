@@ -2,6 +2,12 @@ import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { site } from "@/data/site";
 
+const socialLabels: Record<string, string> = {
+  github: "GitHub",
+  linkedin: "LinkedIn",
+  instagram: "Instagram",
+};
+
 export default function Hero() {
   return (
     <section className="flex min-h-[calc(100svh-4rem)] items-center py-16">
@@ -32,14 +38,14 @@ export default function Hero() {
 
         <div className="mt-10 flex gap-6 text-sm text-muted">
           {Object.entries(site.socials).map(([name, url]) => (
-            <a
+            <a 
               key={name}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="capitalize transition-colors hover:text-foreground"
+              className="transition-colors hover:text-foreground"
             >
-              {name}
+              {socialLabels[name] ?? name}
             </a>
           ))}
         </div>
